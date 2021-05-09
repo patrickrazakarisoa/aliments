@@ -6,9 +6,16 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarColor02">
          <ul class="navbar-nav me-auto">
-           <li class="nav-item">
-             <a class="nav-link text-white" href="{{ path('aliments')}} ">Aliments</a>
-           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Aliments
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ path('aliments')}}">Aliments</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ path('admin_aliments')}}">Administration</a>
+            </div>
+          </li>
          </ul>      
        </div>
      </div>

@@ -13,7 +13,7 @@ class AlimentFixtures extends Fixture
         $a1 = new Aliment();
         $a1->setNom("Carotte")
             ->setPrix(1.80)
-            ->setImage("aliments/carotte.png")
+            ->setImage("carotte.png")
             ->setCalorie(500)
             ->setProteine(12.36)
             ->setGlucide(2.23)
@@ -23,7 +23,7 @@ class AlimentFixtures extends Fixture
         $a2 = new Aliment();
         $a2->setNom("Patate")
             ->setPrix(5.80)
-            ->setImage("aliments/patate.jpg")
+            ->setImage("patate.jpg")
             ->setCalorie(1000)
             ->setProteine(2.36)
             ->setGlucide(6.23)
@@ -33,7 +33,7 @@ class AlimentFixtures extends Fixture
         $a3 = new Aliment();
         $a3->setNom("Pomme")
             ->setPrix(3.80)
-            ->setImage("aliments/pomme.png")
+            ->setImage("pomme.png")
             ->setCalorie(500)
             ->setProteine(15.36)
             ->setGlucide(3.35)
@@ -43,7 +43,7 @@ class AlimentFixtures extends Fixture
         $a4 = new Aliment();
         $a4->setNom("Tomate")
             ->setPrix(5.80)
-            ->setImage("aliments/tomate.png")
+            ->setImage("tomate.png")
             ->setCalorie(5000)
             ->setProteine(25.36)
             ->setGlucide(4.23)
