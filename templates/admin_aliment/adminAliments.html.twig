@@ -17,6 +17,7 @@
         <tr class="table-info">
             <th>Images</th>
             <th>Nom</th>
+            <th>Type</th>
             <th>Prix</th>
             <th>Calories</th>
             <th>Protéines</th>
@@ -31,6 +32,7 @@
                     <img src="{{asset('images/aliments/' ~ aliment.image )}}" class="perso_imgAlimentAdmin">
                 </th>
                 <td><strong>{{aliment.nom}}</strong></td>
+                <td><strong>{{aliment.type.libelle}}</strong></td>
                 <td>{{aliment.prix}}</td>
                 <td>{{aliment.calorie}}</td>
                 <td>{{aliment.proteine}}</td>

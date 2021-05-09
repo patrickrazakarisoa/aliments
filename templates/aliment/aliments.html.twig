@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AlimentController!{% endblock %}
+{% block title %}Aliments{% endblock %}
 {% block monTitre %}
 Liste des aliments
 {% if isCalorie %}
@@ -11,24 +11,30 @@ Liste des aliments
 {% endblock %}
 
 {% block body %}
-<a class="btn btn-info" href="{{ path('aliments')}} ">Tous les aliments</a>
-<a class="btn btn-warning text-dark" href="{{ path('alimentParCalorie', {"calorie": 600})}} ">Moins de 600 calories au 100g</a>
-<a class="btn btn-primary " href="{{ path('alimentParGlucide', {"glucide": 4}) }} ">Moins de 4 glucides au 100g</a>
- 
+<div class="container m-3">
+
+     <a class="btn btn-info" href="{{ path('aliments')}} ">Tous les aliments</a>
+     <a class="btn btn-warning text-dark" href="{{ path('alimentParCalorie', {"calorie": 600})}} ">Moins de 600 calories au 100g</a>
+     <a class="btn btn-primary " href="{{ path('alimentParGlucide', {"glucide": 4}) }} ">Moins de 4 glucides au 100g</a>
+</div>
+
 <div class="row">
+
+     
 
      {% for aliment in aliments %}
           <div class="col-12 col-md-6 col-lg-4 col-xl-3">
 
                <div class="card border-info mb-3 mx-auto" style="max-width: 20rem;">
                     <div class="card-header text-center">
-                         <img src="{{asset('images/' ~ aliment.image)}}" class="perso_imgAliment card-img-top" alt="{{ aliment.nom}} ">
+                         <img src="{{asset('images/aliments/' ~ aliment.image)}}" class="perso_imgAliment card-img-top" alt="{{ aliment.nom}} ">
                     </div>
 
                     <div class="card-body">
                          <h3 class="cart-title text-center pb-2 mx-3 border-bottom border-info">{{aliment.nom|capitalize}} </h3>
                          <p class="card-text">
                               <h4 class="text-center">Prix (Kilo): {{aliment.prix}}€ </h4>
+                              <h4 class="text-center">Type: {{aliment.type.libelle}} </h4>
                               <table class="table text-center">
                                    <tr class="table-info">
                                         <td>Propriété</td>
