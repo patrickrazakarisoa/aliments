@@ -4,6 +4,11 @@
 {% block monTitre %}Administration des types{% endblock %}
 {% block body %}
 <div class="container">
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success text-center">
+        {{ message }} 
+    </div>   
+    {% endfor %}
     <a href="{{path('admin_type_ajout')}} " class="btn btn-info m-4 p-2" style="width: 30%">Ajouter</a>
     <table class="table text-center">
         <tr class="table-info">

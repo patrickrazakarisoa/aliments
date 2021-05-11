@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Types{% endblock %}
+{% block title %}Types {{type.libelle}} {% endblock %}
 {% block monType %}
     {% if isModification %}
         Modification {{ type.libelle}}
