@@ -20,7 +20,11 @@
             <td>{{ type.libelle}}</td>
             <td>
                 <a href="{{path('admin_type_modif', {'id': type.id})}}" class="btn btn-warning">Modifier</a>
-                <a href="" class="btn btn-danger">Supprimer</a>
+                <form method="post" style="display:inline-block" action="{{ path("admin_types_suppression",{'id': type.id} )}} ">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ type.id) }}">
+                    <input type="submit" class="btn btn-danger" value="supprimer" onsubmit="return confirm('Confirmer la suppresion ?') ">
+                </form>            
             </td>
         </tr>
         {% endfor %}

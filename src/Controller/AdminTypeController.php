@@ -50,4 +50,17 @@ class AdminTypeController extends AbstractController
             "isModification" =>$type->getId() !==null
         ]);
     }
+
+    /**
+     * @Route("/admin/type/{id}", name="admin_types_suppression", methods="delete")
+     */
+    public function suppresion(Type $type, EntityManagerInterface $entityManagerInterface, Request $request): Response
+    {
+        if($this->isCsrfTokenValid("SUP" . $type->getId(), $request->get('_token'))){
+            $entityManagerInterface->remove($type);
+            $entityManagerInterface->flush();
+            $this->addFlash("success", "La suppression a été effectuée.");
+            return $this->redirectToRoute("admin_type");
+        }
+    }
 }
