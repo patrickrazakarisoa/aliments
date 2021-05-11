@@ -2,9 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\TypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,9 +28,9 @@ class Type
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity=Aliment::class, mappedBy="type")
+     * @ORM\Column(type="datetime")
      */
-    private $aliments;
+    private $updated_at;
 
     public function __construct()
     {
@@ -68,33 +66,16 @@ class Type
         return $this;
     }
 
-    /**
-     * @return Collection|Aliment[]
-     */
-    public function getAliments(): Collection
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->aliments;
+        return $this->updated_at;
     }
 
-    public function addAliment(Aliment $aliment): self
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
-        if (!$this->aliments->contains($aliment)) {
-            $this->aliments[] = $aliment;
-            $aliment->setType($this);
-        }
+        $this->updated_at = $updated_at;
 
         return $this;
     }
 
-    public function removeAliment(Aliment $aliment): self
-    {
-        if ($this->aliments->removeElement($aliment)) {
-            // set the owning side to null (unless already changed)
-            if ($aliment->getType() === $this) {
-                $aliment->setType(null);
-            }
-        }
-
-        return $this;
-    }
 }

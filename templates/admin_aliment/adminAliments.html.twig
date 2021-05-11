@@ -28,9 +28,9 @@
 
         {% for aliment in aliments %}
             <tr>
-                <th scope="row">
+                <td scope="row">
                     <img src="{{asset('images/aliments/' ~ aliment.image )}}" class="perso_imgAlimentAdmin">
-                </th>
+                </td>
                 <td><strong>{{aliment.nom}}</strong></td>
                 <td><strong>{{aliment.type.libelle}}</strong></td>
                 <td>{{aliment.prix}}</td>
