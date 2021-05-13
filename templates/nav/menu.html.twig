@@ -30,22 +30,13 @@
               {% endif %}
             </div>
           </li>
-          {% if is_granted('ROLE_ADMIN') %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout')}}">Déconnexion</a></li>
-          {% elseif is_granted('ROLE_USER') %}
-            <li class="nav-item"><a class="nav-link"href="{{ path('app_logout')}}">Déconnexion</a></li>
-          {% else %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('app_register')}}">Inscription</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ path('app_login')}}">Connexion</a></li>
-          {% endif %}
-
           {% if app.user %}
-            <li class="nav-item">
-                <a class="nav-link"> Bonjour {{ app.user.name }} </a>
-            </li>
+          <li class="nav-item"><a class="nav-link"href="{{ path('app_logout')}}">Déconnexion</a></li>
+          <li class="nav-item"><a class="nav-link"> Bonjour {{ app.user.name }} </a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ path('app_register')}}">Inscription</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ path('app_login')}}">Connexion</a></li>
           {% endif %}
-        
-
          </ul>      
        </div>
      </div>

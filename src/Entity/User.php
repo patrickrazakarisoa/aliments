@@ -128,7 +128,7 @@ class User implements UserInterface
         return $this->password;
     }
 
-    public function setVerificationPassword(string $verificationPassword): self
+    public function setVerificationPassword(?string $verificationPassword): self
     {
         $this->verificationPassword = $verificationPassword;
 

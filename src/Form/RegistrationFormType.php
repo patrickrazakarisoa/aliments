@@ -44,9 +44,14 @@ class RegistrationFormType extends AbstractType
                 //     ]),
                 // ],
             ])
-            ->add('verificationPassword', PasswordType::class)
-
-        ;
+            ->add('verificationPassword', PasswordType::class, [
+                'attr' => ['autocomplete' => 'new-password'],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez confirmer le mot de passe',
+                    ]),
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

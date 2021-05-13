@@ -1,26 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Connexion{% endblock %}
-{% block monTitre %}Page de connexion{% endblock %}
+{% block monTitre %}
+<div class="container">
+<h5 class="rounder p-2 m-2 text-white bg-success text-center rounded">
+    Je te souhaite une bonne visite!
+</h5>
+</div>
+{% endblock %} 
 
 {% block body %}
 <div class="container m-5">
     <div class="container m-5 p-5">
-<form method="post" class="border-success p-3">
+<form method="post" class="form-group p-3">
 
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger text-center container">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <h1 class="h3 mb-3 font-weight-normal text-center">Connexion</h1>
+    {# <label for="inputEmail">Email</label> #}
+    <label for="inputName">Pseudo</label>
+    <input type="name" value="{{ last_username }}" name="name" id="inputName" class="form-control" autocomplete="name" required autofocus>
+    {# <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus> #}
     <label for="inputPassword">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -33,9 +39,7 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary container mt-5" style="margin: auto;"  type="submit">
-        Se connecter
-    </button>
+    <button class="btn btn-lg btn-primary container mt-5" style="margin: auto;"  type="submit">Se connecter</button>
 </form>
 </div>
 </div>
