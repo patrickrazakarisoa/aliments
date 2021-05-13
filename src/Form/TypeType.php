@@ -13,10 +13,10 @@ class TypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('image')
-
-            // ->add('imageFile', FileType::class, ['required'=>false])
             ->add('libelle')
+            ->add('imageFile', FileType::class, [
+                'required'=>false
+            ])
         ;
     }
 

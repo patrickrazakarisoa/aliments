@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Types {{type.libelle}} {% endblock %}
-{% block monType %}
+{% block monTitre %}
     {% if isModification %}
         Modification {{ type.libelle}}
     {% else %}
@@ -16,11 +16,10 @@
                 {% if isModification %}
                 <img src="{{asset('images/types/' ~ type.image )}} " style="width: 30%; " >
                 {% endif %}
-                <div>{{form_row(form.image)}} </div>
-                <div>{{ form_row(form.libelle, {"attr" : { 'class': 'text-danger bg-success'}, "label": "Nom du type"})}} </div>
+                <div>{{form_row(form.imageFile)}} </div>
             </div>
             <div class="col-6">
-                {{form_widget(form)}}
+                <div>{{ form_row(form.libelle, {"attr" : { 'class': 'text-dark'}, "label": "Nom du type"})}} </div>
             </div>
         </div>
             <input type="submit" class="btn btn-primary container m-5 mx-auto" value="Enregistrer">

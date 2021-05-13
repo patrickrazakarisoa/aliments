@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\AlimentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,8 @@ class AlimentController extends AbstractController
         return $this->render('aliment/aliments.html.twig', [
             'aliments' => $aliments,
             'isCalorie' => false,
-            'isGlucide' => false
+            'isGlucide' => false,
+
 
         ]);
     }

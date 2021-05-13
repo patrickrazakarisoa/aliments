@@ -7,13 +7,15 @@
        <div class="collapse navbar-collapse" id="navbarColor02">
          <ul class="navbar-nav me-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Aliments
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ path('aliments')}}">Aliments</a>
+              <a class="dropdown-item text-center" href="{{ path('aliments')}}">Aliments</a>
+              {% if is_granted('ROLE_ADMIN') %}
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ path('admin_aliments')}}">Administration</a>
+              <a class="dropdown-item text-center" href="{{ path('admin_aliments')}}">Administration</a>
+              {% endif %}
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -21,11 +23,29 @@
               Types
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ path('types')}}">Types</a>
+              <a class="dropdown-item text-center" href="{{ path('types')}}">Types</a>
+              {% if is_granted('ROLE_ADMIN') %}
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ path('admin_type')}} ">Administration</a>
+              <a class="dropdown-item text-center" href="{{ path('admin_type')}} ">Administration</a>
+              {% endif %}
             </div>
           </li>
+          {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_logout')}}">Déconnexion</a></li>
+          {% elseif is_granted('ROLE_USER') %}
+            <li class="nav-item"><a class="nav-link"href="{{ path('app_logout')}}">Déconnexion</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_register')}}">Inscription</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_login')}}">Connexion</a></li>
+          {% endif %}
+
+          {% if app.user %}
+            <li class="nav-item">
+                <a class="nav-link"> Bonjour {{ app.user.name }} </a>
+            </li>
+          {% endif %}
+        
+
          </ul>      
        </div>
      </div>
