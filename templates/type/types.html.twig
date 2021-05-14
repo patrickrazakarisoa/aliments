@@ -11,7 +11,7 @@
                 <img class="perso_imgAliment" src="{{ asset('images/types/' ~ type.image)}}">
             </div>
             <div class="col align-self-center m-5">
-                <a href="" style="text-decoration: none;">{{type.libelle}}  </a>                          
+                <a href="{{ path('afficher_type', {'id': type.id})}} " style="text-decoration: none;">{{type.libelle}}  </a>                          
             </div>
         </div>
     </div>

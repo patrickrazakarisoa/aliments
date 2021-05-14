@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Type;
 use App\Repository\TypeRepository;
 use Doctrine\DBAL\Types\Types;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,6 +19,16 @@ class TypeController extends AbstractController
         $types = $typeRepository->findAll();
         return $this->render('type/types.html.twig', [
             'types' => $types,
+        ]);
+    }
+
+    /**
+     * @Route("/type/{id}", name="afficher_type")
+     */
+    public function afficherFamille(Type $type): Response
+    {
+        return $this->render('type/afficherType.html.twig', [
+            "type" => $type
         ]);
     }
 }
